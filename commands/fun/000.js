@@ -6,6 +6,7 @@ module.exports = {
   usage: "<time> <channel> <prize>",
   category: "fun",
   run: async (bot, message, args) => {
+    if (!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("당신은 뮤트 명령어를 사용할 권한이 없습니다."); //MANAGE_MESSAGES라고 써있는거 지우지마시고 놨두세요
     if (!args[0]) return message.channel.send(`시간을 지정하지 않았습니다!`);
     if (
       !args[0].endsWith("d") &&
